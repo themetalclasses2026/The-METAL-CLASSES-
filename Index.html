@@ -78,7 +78,6 @@
       animation: float 3s ease-in-out infinite;
     }
 
-    /* FORM */
     form {
       max-width: 500px;
       margin: auto;
@@ -212,12 +211,19 @@
     <h1>Our Location</h1>
 
     <p>
-      <a href="https://maps.app.goo.gl/YM4X9y8JinBdxged6?g_st=ac" target="_blank">
+      📍 128/297, K Block, Kidwai Nagar,<br>
+      Kanpur, Uttar Pradesh 208011
+    </p>
+
+    <p>
+      <a href="https://www.google.com/maps/search/?api=1&query=128/297,+K+Block,+Kidwai+Nagar,+Kanpur,+Uttar+Pradesh+208011" target="_blank">
         Open in Google Maps
       </a>
     </p>
 
-    <iframe src="https://www.google.com/maps?q=https://maps.app.goo.gl/YM4X9y8JinBdxged6&output=embed"></iframe>
+    <iframe 
+      src="https://www.google.com/maps?q=128/297,+K+Block,+Kidwai+Nagar,+Kanpur,+Uttar+Pradesh+208011&output=embed">
+    </iframe>
   </div>
 </section>
 
@@ -237,7 +243,6 @@
 </footer>
 
 <script>
-  /* Typing Animation */
   const text = "THE METAL CLASSES BY MAYUR GUPTA SIR";
   let i = 0;
   function typeWriter() {
@@ -249,12 +254,10 @@
   }
   typeWriter();
 
-  /* EmailJS */
   (function(){ emailjs.init("Lw-DDGlAktLokQdhN"); })();
 
   document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
-
     emailjs.sendForm("Mayursir", "template_m93utph", this)
       .then(() => alert("Enrollment Sent Successfully!"),
             () => alert("Failed to send message."));
