@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Metal Classes</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #3b0000, #0f0f0f);
+      color: white;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 8%;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 0, 0, 0.08);
+      border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    nav h2 {
+      color: #ff4d4d;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4d4d;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 120px 10% 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .glass {
+      background: rgba(255, 0, 0, 0.08);
+      border-radius: 20px;
+      padding: 35px;
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #ff4d4d;
+      margin-bottom: 15px;
+    }
+
+    p {
+      opacity: 0.85;
+      margin-bottom: 10px;
+    }
+
+    /* FORM */
+    input, textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      margin-top: 10px;
+      background: linear-gradient(45deg, #ff0000, #ff4d4d);
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+    }
+
+    iframe {
+      width: 100%;
+      height: 350px;
+      border-radius: 15px;
+      border: none;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+
+    @media(max-width: 768px) {
+      h1 { font-size: 1.6rem; }
+      nav { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <h2>The Metal Classes</h2>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#contact">Contact</a>
+    <a href="#location">Location</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <div class="glass">
+    <h1>THE METAL CLASSES BY MAYUR GUPTA SIR</h1>
+    <p>Futuristic Learning • Concept Clarity • Academic Excellence</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="glass">
+    <h1>Contact Us</h1>
+    <p>📞 +91 83186 59921</p>
+    <p>📧 themetalclasses@gmail.com</p>
+
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="course" placeholder="Class / Course" required>
+      <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="glass">
+    <h1>Our Location</h1>
+
+    <p>
+      <a href="https://maps.app.goo.gl/YM4X9y8JinBdxged6?g_st=ac" target="_blank" style="color:#ff4d4d;">
+        Open in Google Maps
+      </a>
+    </p>
+
+    <iframe 
+      src="https://www.google.com/maps?q=https://maps.app.goo.gl/YM4X9y8JinBdxged6&output=embed">
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  © The Metal Classes by Mayur Gupta Sir
+</footer>
+
+<!-- EMAILJS SCRIPT -->
+<script>
+  (function(){
+    emailjs.init("Lw-DDGlAktLokQdhN");
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("Mayursir", "template_m93utph", this)
+      .then(() => {
+        alert("✅ Message Sent Successfully!");
+      }, (error) => {
+        alert("❌ Failed to send message.");
+      });
+  });
+</script>
+
+</body>
+</html>
